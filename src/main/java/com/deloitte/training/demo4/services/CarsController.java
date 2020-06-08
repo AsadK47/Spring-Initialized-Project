@@ -27,7 +27,7 @@ import com.deloitte.training.demo4.model.CarList;
 import com.deloitte.training.demo4.model.ServiceOptions;
 
 @RestController("carsController")
-@RequestMapping("cars")
+@RequestMapping("/cars")
 public class CarsController {
     private Map<String, Car> stock;
 
@@ -36,16 +36,16 @@ public class CarsController {
         this.stock = stock;
     }
 
-    @GetMapping(produces = "application/xml")
-    public ResponseEntity<CarList> viewAllAsXml(@RequestParam("serviceOptions") Optional<ServiceOptions> serviceOptions) {
-        if (stock.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        } else {
-            Collection<Car> cars = new HashSet<>(stock.values());
-            serviceOptions.ifPresent(options -> cars.removeIf(car -> !car.getServiceOptions().equals(options)));
-            return ResponseEntity.ok(new CarList(cars));
-        }
-    }
+//    @GetMapping(produces = "application/xml")
+//    public ResponseEntity<CarList> viewAllAsXml(@RequestParam("serviceOptions") Optional<ServiceOptions> serviceOptions) {
+//        if (stock.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        } else {
+//            Collection<Car> cars = new HashSet<>(stock.values());
+//            serviceOptions.ifPresent(options -> cars.removeIf(car -> !car.getServiceOptions().equals(options)));
+//            return ResponseEntity.ok(new CarList(cars));
+//        }
+//    }
 
     @GetMapping(produces = "application/json")
     public ResponseEntity<Collection<Car>> viewAllAsJson(@RequestParam("serviceOptions") Optional<ServiceOptions> serviceOptions) {

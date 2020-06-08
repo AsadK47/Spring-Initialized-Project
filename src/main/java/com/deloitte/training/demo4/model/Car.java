@@ -9,6 +9,9 @@ public class Car {
     private int year;
     private ServiceOptions serviceOptions;
 
+    public Car() {
+
+    }
 
     public Car(String model, String colour, int year, ServiceOptions serviceOptions) {
         this.model = model;

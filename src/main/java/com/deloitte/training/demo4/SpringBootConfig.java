@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.deloitte.training.demo4.model.Car;
@@ -12,6 +13,7 @@ import static com.deloitte.training.demo4.model.ServiceOptions.BASIC;
 import static com.deloitte.training.demo4.model.ServiceOptions.SUPER;
 import static com.deloitte.training.demo4.model.ServiceOptions.ULTRA;
 
+@Configuration
 public class SpringBootConfig {
     @Bean(name = "stock")
     @Scope("prototype")
